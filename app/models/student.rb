@@ -7,7 +7,7 @@ class Student < ActiveRecord::Base
    # validates Date.today - :birthday.years, :exclusion => { :in => [0,1,2,3]}
    validates :age, :exclusion => { :in => (0..3)}
    validates :email, :format => { :with => /[a-zA-Z1_9]+@[a-zA-Z1_9]+\.[a-zA-Z1_9]{2,}/}
-   # validates :should_have_at_least_10_numbers => true
+   validate :should_have_at_least_10_numbers
 
   def name
     "#{first_name} #{last_name}"
@@ -19,7 +19,7 @@ class Student < ActiveRecord::Base
   end
 
   def should_have_at_least_10_numbers
-    if 4 < 10
+    if phone.gsub(/\D/, '').length < 10 
       errors.add(:phone, "fail")
     end
   end
