@@ -24,6 +24,4 @@ end
                              :teacher_id => (1..9).to_a.sample)
 end
 
-Course.create( student_id: 3,
-                       teacher_id: 5)
 

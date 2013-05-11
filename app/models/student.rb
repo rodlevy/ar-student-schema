@@ -13,9 +13,9 @@ class Student < ActiveRecord::Base
   validates :email, :format => { :with => /[a-zA-Z1_9]+@[a-zA-Z1_9]+\.[a-zA-Z1_9]{2,}/}
   validate :should_have_at_least_10_numbers
 
-  def name
-    "#{first_name} #{last_name}"
-  end
+  # def name
+  #   "#{first_name} #{last_name}"
+  # end
 
   def age
     now = Date.today
